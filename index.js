@@ -1,5 +1,3 @@
-console.log('HI');
-var udayavani = 'div.white-blk-big div.cnt-hldr h3';
 
 const dataList = [
 	{
@@ -110,9 +108,6 @@ function getAllData() {
 function getSpecificData(corsUrl, data) {	
 $.getJSON(corsUrl,
 function(jsonData){
-	console.log('---------------------------');
-	console.log(corsUrl);
-	console.log((jsonData.contents));
 	renderData(data, jsonData.contents);
 });
 }
@@ -122,23 +117,15 @@ function renderData(data, jsonData) {
 	const virtual_div = document.createElement('div');
 	virtual_div.setAttribute('id', data.id);
 	virtual_div.innerHTML = jsonData;
-	// virtual_container.appendChild(virtual_div);
-
 	filterData(data, virtual_div);
 }
 
 function filterData(data, virtual_div) {
-	// const filterQuery = `div#virtual_container div#${data.id} ${data.query}`;
 	const filterQuery = data.query;
-	console.log("!@#$%^&*()_");
-	console.log(virtual_div);
 	const filteredQuery = virtual_div.querySelectorAll(filterQuery);
-	console.log(filteredQuery);
 	if (filteredQuery) {
 		displayDataInCard(Array.from(filteredQuery).map((pattern) => (pattern.innerText).trim()), data);
 	}
-	// const virtual_div = document.getElementById(data.id);
-
 }
 
 function displayDataInCard(newsList, data) {
@@ -151,7 +138,7 @@ function displayDataInCard(newsList, data) {
 			news_card.classList.add('card' , 'col-md-12', 'margin-bottom-ten', 'inner-card-shadow');
 			news_card.innerText = news;
 			if (data.isKannada) {
-				news_card.classList.add('kannada_text')
+				news_card.classList.add('kannada_text');
 			}
 			display_region.appendChild(news_card);
 		});
