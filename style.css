@@ -4,6 +4,9 @@
     background-color: #343d46;
     height: 100vh;
     width: 100vw;
+
+    /* background-image: url('assets/news_paper.png'); */
+    /* background-color: #343d46 !important; */
 }
 
 #container {
@@ -50,10 +53,15 @@
 
 #header {
     background: none;
-    color: red;
+    color: #1D9BF8;
     height: 5rem;
     font-weight: bold;
     font-size: xx-large;
+}
+
+.headline-style {
+    color: #FD3A05;
+    font-style: italic;
 }
 
 .kannada_text {

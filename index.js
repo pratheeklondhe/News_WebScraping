@@ -78,7 +78,7 @@ function createCards(emptyCol, data) {
 	cardBody.classList.add('card-body');
 
 	const cardTitle = document.createElement('h6');
-	cardTitle.classList.add('card-title', 'font-bold', 'center-both-directions');
+	cardTitle.classList.add('card-title','headline-style', 'font-bold', 'center-both-directions');
 	cardTitle.innerText = data.title;
 
 	const paraGraph = document.createElement('div');
