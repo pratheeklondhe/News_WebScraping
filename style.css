@@ -1,0 +1,61 @@
+#scraping_news_body {
+    padding: 0;
+    margin: 0;
+    background-color: #343d46;
+    height: 100vh;
+    width: 100vw;
+}
+
+#container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+.custom-col {
+    height: 20rem;
+}
+
+.center-both-directions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-size {
+    width: 95%;
+    height: 95%;
+}
+
+.font-bold{
+    font-weight: bold;
+}
+
+.height-fill-available {
+    height: -webkit-fill-available;
+}
+
+.card-scroll-behaviour {
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.margin-bottom-ten {
+    margin-bottom: 10px;
+}
+
+.inner-card-shadow {
+    box-shadow: 4px 5px 10px #343d46;
+}
+
+#header {
+    background: none;
+    color: red;
+    height: 5rem;
+    font-weight: bold;
+    font-size: xx-large;
+}
+
+.kannada_text {
+    font-family: "Noto Sans Kannada", sans-serif;
+}
