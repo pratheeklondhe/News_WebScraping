@@ -49,6 +49,10 @@ const dataList = [
 document.addEventListener('DOMContentLoaded', function() {
 
 	createCardSkeletons();
+
+	document.getElementById('devInfo').addEventListener('click', function() {
+		window.open('http://portfolio-pratheek.firebaseapp.com', '_blank');
+	});
 	
 	getAllData();
 });
@@ -78,6 +82,10 @@ function createCards(emptyCol, data) {
 	const cardTitle = document.createElement('h6');
 	cardTitle.classList.add('card-title','headline-style', 'font-bold', 'center-both-directions');
 	cardTitle.innerText = data.title;
+	cardTitle.classList.add('cursor-pointer');
+	cardTitle.addEventListener('click', function () {
+		window.open(data.url, '_blank');
+	});
 
 	const paraGraph = document.createElement('div');
 	paraGraph.setAttribute('id', data.id + '_display_region');
@@ -113,7 +121,6 @@ function(jsonData){
 }
 
 function renderData(data, jsonData) {
-	const virtual_container =  document.getElementById('virtual_container');
 	const virtual_div = document.createElement('div');
 	virtual_div.setAttribute('id', data.id);
 	virtual_div.innerHTML = jsonData;

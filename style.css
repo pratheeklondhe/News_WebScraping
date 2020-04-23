@@ -67,3 +67,12 @@
 .kannada_text {
     font-family: "Noto Sans Kannada", sans-serif;
 }
+
+.dev-info {
+    margin-top: -30px;
+    font-size: small
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
