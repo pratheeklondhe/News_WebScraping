@@ -99,8 +99,13 @@ function createCards(emptyCol, data) {
 }
 
 function getCorsUrl(url) {
-	return 'http://www.whateverorigin.org/get?url=' + 
-	encodeURIComponent(url) + '&callback=?';
+	// const tempUrl = 'https://fast-wildwood-48042.herokuapp.com/api/get-scraped-news/get-data/';
+	// const tempUrl = '';
+	// const tempUrl = 'http://localhost:3000/api/get-scraped-news/get-data/';
+	const tempUrl = 'https://cors-anywhere.herokuapp.com/';
+	console.log(tempUrl + 'http://www.whateverorigin.org/get?url=' + 
+	encodeURIComponent(url) + '&callback=?');
+	return tempUrl + url;
 }
 
 function getAllData() {
@@ -113,12 +118,44 @@ function getAllData() {
 	});
 }
 
-function getSpecificData(corsUrl, data) {	
-$.getJSON(corsUrl,
-function(jsonData){
-	renderData(data, jsonData.contents);
-});
+function getSpecificData(corsUrl, data) {
+	// var tempData = data;
+	const ajaxObj = {
+  url: corsUrl,
+  type: 'GET',
+//   dataType: 'json',
+//   contentType: 'json',
+  data: '',
+//   beforeSend: setHeader,
+  success: function(a,b,c){
+	//   if (a && a.status == 200) {
+
+	//   }
+	  console.log("HERE" + data);
+	renderData(data, a);
+},
+error: function(){
+	  alert("ERR");
+	// renderData(data, jsonData.contents);
 }
+};
+$.ajax(ajaxObj);
+}
+
+      function setHeader(xhr) {
+        xhr.setRequestHeader('Origin', null);
+        xhr.setRequestHeader('Sec-Fetch-Mode', 'cors');
+      }
+
+// function postApi(jsonData){
+// 	renderData(data, jsonData.contents);
+// }
+
+// $.getJSON(corsUrl,
+// function(jsonData){
+// 	renderData(data, jsonData.contents);
+// });
+// }
 
 function renderData(data, jsonData) {
 	const virtual_div = document.createElement('div');
