@@ -102,10 +102,10 @@ function getCorsUrl(url) {
 	// const tempUrl = 'https://fast-wildwood-48042.herokuapp.com/api/get-scraped-news/get-data/';
 	// const tempUrl = '';
 	// const tempUrl = 'http://localhost:3000/api/get-scraped-news/get-data/';
-	const tempUrl = 'https://cors-anywhere.herokuapp.com/';
-	console.log(tempUrl + 'http://www.whateverorigin.org/get?url=' + 
-	encodeURIComponent(url) + '&callback=?');
-	return tempUrl + url;
+	// const tempUrl = 'https://cors-anywhere.herokuapp.com/';
+	// console.log(tempUrl + 'http://www.whateverorigin.org/get?url=' + 
+	// encodeURIComponent(url) + '&callback=?');
+	return 'https://cors-anywhere.herokuapp.com/' + url;
 }
 
 function getAllData() {
@@ -127,15 +127,14 @@ function getSpecificData(corsUrl, data) {
 //   contentType: 'json',
   data: '',
 //   beforeSend: setHeader,
-  success: function(a,b,c){
+  success: function(jsonData,b,c){
 	//   if (a && a.status == 200) {
 
 	//   }
-	  console.log("HERE" + data);
-	renderData(data, a);
+	renderData(data, jsonData);
 },
 error: function(){
-	  alert("ERR");
+	//   alert("ERR");
 	// renderData(data, jsonData.contents);
 }
 };
