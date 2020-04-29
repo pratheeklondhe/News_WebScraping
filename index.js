@@ -5,6 +5,7 @@ const dataList = [
 		title: 'India Today',
 		id: 'india_today',
 		query: 'h3.news-page-feature a',
+		// mobileViewQuery: 'h3.news-page-feature a',
 		isCorsREquired: true,
 		isKannada: false,
 		show: true
@@ -14,6 +15,7 @@ const dataList = [
 		title: 'The Hindu',
 		id: 'the_hindu',
 		query: 'li.media>a',
+		// mobileViewQuery: 'div.mobile-padding li.media a',
 		isCorsREquired: true,
 		isKannada: false,
 		show: true
@@ -22,6 +24,7 @@ const dataList = [
 		title: 'Vijaya Karnataka',
 		id: 'vijaya_karnataka',
 		query: 'div.leftmain>div.mainarticle1>h2>a',
+		// mobileViewQuery: 'div.table_row a.table_row>span.text_ellipsis',
 		isCorsREquired: true,
 		isKannada: true,
 		show: true
@@ -40,11 +43,16 @@ const dataList = [
 		title: 'Google News',
 		id: 'google_news',
 		query: 'article.j7vNaf>h3',
+		// mobileViewQuery: 'h4.ipQwMb',
 		isCorsREquired: true,
 		isKannada: false,
 		show: true
 	}
 ];
+
+
+
+// var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
 document.addEventListener('DOMContentLoaded', function() {
 
@@ -167,7 +175,7 @@ function filterData(data, virtual_div) {
 	const filterQuery = data.query;
 	const filteredQuery = virtual_div.querySelectorAll(filterQuery);
 	if (filteredQuery) {
-		displayDataInCard(Array.from(filteredQuery).map((pattern) => (pattern.innerText).trim()), data);
+		displayDataInCard(Array.from(filteredQuery).map((pattern) => {; return (pattern.innerText).trim()}), data);
 	}
 }
 
